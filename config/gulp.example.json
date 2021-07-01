@@ -1,0 +1,154 @@
+{
+  "paths": {
+    "root": "./dist",
+    "siteUrl": "https://example.com",
+    "html": {
+      "src": "./src/**/*.{html,htm}",
+      "dest": "./dist",
+      "index": "index.html"
+    },
+    "pug": {
+      "src": "./src/pug/**/*.pug",
+      "dest": "./dist"
+    },
+    "ejs": {
+      "src": "./src/ejs/**/*.ejs",
+      "srcBuild": [
+        "./src/ejs/**/*.ejs",
+        "!./src/ejs/**/_*.ejs"
+      ],
+      "dest": "./dist"
+    },
+    "sass": {
+      "src": "./src/assets/sass/**/*.scss",
+      "dest": {
+        "expand": "./dist/assets/css",
+        "compress": "./dist/assets/css",
+        "nest": "./dist/assets/css",
+        "compact": "./dist/assets/css"
+      }
+    },
+    "css": {
+      "src": "./src/assets/css/**/*.css",
+      "dest": {
+        "expand": "./dist/assets/css",
+        "compress": "./dist/assets/css"
+      }
+    },
+    "js": {
+      "src": "./src/assets/js/**/*.js",
+      "dest": {
+        "expand": "./dist/assets/js",
+        "compress": "./dist/assets/js"
+      }
+    },
+    "img": {
+      "src": "./src/assets/img/**/*.{jpg,JPG,jpeg,JPEG,png,PNG,gif,GIF,svg,SVG}",
+      "dest": "./dist/assets/img"
+    },
+    "browser": {
+      "src": "./src/**",
+      "dest": "./dist/**"
+    },
+    "delMap": [
+      "./dist/**/*.css.map",
+      "./dist/**/*.js.map",
+      "./dist/sitemap.xml"
+    ]
+  },
+  "ftp": {
+    "host": "FTP_HOST",
+    "user": "FTP_USER",
+    "password": "FTP_PASSWORD",
+    "remoteRoot": "REMOTE_DOCUMENT_ROOT",
+    "localRoot": "./dist",
+    "include": [
+      "*"
+    ],
+    "exclude": [
+      "*.css.map",
+      "*.scripts.map"
+    ],
+    "deleteRemote": false,
+    "forcePasv": true,
+    "sftp": false,
+    "debounceDelay": 10000
+  },
+  "pug": {
+    "pretty": true
+  },
+  "ejs": {
+    "ext": ".html"
+  },
+  "sass": {
+    "outputStyle": {
+      "expand": true,
+      "compress": true,
+      "nest": false,
+      "compact": false
+    }
+  },
+  "css": {
+    "outputStyle": {
+      "expand": true,
+      "compress": false
+    }
+  },
+  "js": {
+    "outputStyle": {
+      "expand": true,
+      "compress": false
+    },
+    "bundle": {
+      "name": "bundle.js",
+      "src": [
+        "./dist/assets/js/**/*.js"
+      ],
+      "dest": "./dist/assets/js"
+    }
+  },
+  "propertySort": "smacss",
+  "sourcemaps": {
+    "sass": ".",
+    "css": ".",
+    "js": "."
+  },
+  "suffix": {
+    "ejs": ".html",
+    "sass": {
+      "expand": "",
+      "compress": ".min",
+      "nest": "",
+      "compact": ""
+    },
+    "css": {
+      "expand": "",
+      "compress": ".min"
+    },
+    "js": {
+      "expand": "",
+      "compress": ".min"
+    }
+  },
+  "map": {
+    "sass": true,
+    "css": true,
+    "js": true
+  },
+  "imagemin": {
+    "pngquant": {
+      "quality": {
+        "min": 0.6,
+        "max": 0.8
+      },
+      "mozjpeg": {
+        "quality": 80
+      }
+    }
+  },
+  "browser": {
+    "port": 3000,
+    "reloadThrottle": 3000,
+    "reloadOnRestart": true
+  }
+}

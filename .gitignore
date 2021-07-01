@@ -1,0 +1,7 @@
+.DS_Store
+node_modules/
+.editorconfig
+.vscode/
+*.code-workspace
+config/gulp.json
+vendor/
