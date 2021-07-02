@@ -4,5 +4,5 @@ const currentPath = process.cwd();
 const { getModule } = require(`${currentPath}/gulpfile.js/lib/getModule`);
 
 exports.task = () => {
-  return getModule('deleteCss');
+  return getModule('del/css');
 }

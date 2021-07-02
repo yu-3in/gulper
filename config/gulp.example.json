@@ -3,16 +3,29 @@
     "root": "./dist",
     "siteUrl": "https://example.com",
     "html": {
-      "src": "./src/**/*.{html,htm}",
+      "src": [
+        "./src/**/*.{html,htm}",
+        "!./src/**/_**.{html,htm}"
+      ],
       "dest": "./dist",
-      "index": "index.html"
+      "index": "index.html",
+      "del": [
+        "./dist/**/*.{html,htm}",
+        "!./dist/**/_*.{html,htm}"
+      ]
     },
     "pug": {
-      "src": "./src/pug/**/*.pug",
+      "src": [
+        "./src/pug/**/*.pug",
+        "!./src/pug/**/_*.pug"
+      ],
       "dest": "./dist"
     },
     "ejs": {
-      "src": "./src/ejs/**/*.ejs",
+      "src": [
+        "./src/ejs/**/*.ejs",
+        "!./src/ejs/**/_*.ejs"
+      ],
       "srcBuild": [
         "./src/ejs/**/*.ejs",
         "!./src/ejs/**/_*.ejs"
@@ -20,7 +33,11 @@
       "dest": "./dist"
     },
     "sass": {
-      "src": "./src/assets/sass/**/*.scss",
+      "src": [
+        "./src/assets/sass/**/*.{scss,sass}",
+        "!./src/assets/sass/vendor/**/*.{scss,sass}",
+        "!./src/assets/sass/vendor/**/_*.{scss,sass}"
+      ],
       "dest": {
         "expand": "./dist/assets/css",
         "compress": "./dist/assets/css",
@@ -29,21 +46,37 @@
       }
     },
     "css": {
-      "src": "./src/assets/css/**/*.css",
+      "src": [
+        "./src/assets/css/**/*.css",
+        "!./src/assets/css/vendor/**/*.css",
+        "!./src/assets/css/vendor/**/_*.css"
+      ],
       "dest": {
         "expand": "./dist/assets/css",
         "compress": "./dist/assets/css"
-      }
+      },
+      "del": [
+        "./dist/assets/css/**/*.css",
+        "!./dist/assets/css/vendor/**/*.css",
+        "!./dist/assets/css/vendor/**/_*.css"
+      ]
     },
     "js": {
-      "src": "./src/assets/js/**/*.js",
+      "src": [
+        "./src/assets/js/**/*.js",
+        "!./src/assets/js/vendor/**/*.js"
+      ],
       "dest": {
         "expand": "./dist/assets/js",
         "compress": "./dist/assets/js"
-      }
+      },
+      "del": [
+        "./dist/assets/js/**/*.js",
+        "!./dist/assets/js/vendor/**/*.js"
+      ]
     },
     "img": {
-      "src": "./src/assets/img/**/*.{jpg,JPG,jpeg,JPEG,png,PNG,gif,GIF,svg,SVG}",
+      "src": "./src/assets/img/**/*.{jpg,JPG,jpeg,JPEG,png,PNG,gif,GIF,svg,SVG,mp4}",
       "dest": "./dist/assets/img"
     },
     "browser": {
@@ -53,7 +86,8 @@
     "delMap": [
       "./dist/**/*.css.map",
       "./dist/**/*.js.map",
-      "./dist/sitemap.xml"
+      "./dist/sitemap.xml",
+      "!./dist/**/vendor/**/*.map"
     ]
   },
   "ftp": {
@@ -82,7 +116,7 @@
   },
   "sass": {
     "outputStyle": {
-      "expand": true,
+      "expand": false,
       "compress": true,
       "nest": false,
       "compact": false
@@ -90,14 +124,14 @@
   },
   "css": {
     "outputStyle": {
-      "expand": true,
-      "compress": false
+      "expand": false,
+      "compress": true
     }
   },
   "js": {
     "outputStyle": {
-      "expand": true,
-      "compress": false
+      "expand": false,
+      "compress": true
     },
     "bundle": {
       "name": "bundle.js",
