@@ -49,6 +49,7 @@ const buildSass = (done, expand = sassOutputStyle.expand, compress = sassOutputS
     stream = stream
       .pipe(sass({
         outputStyle: outputStyle[0],
+        errLogToConsole: true,
       }))
   }
   stream = stream

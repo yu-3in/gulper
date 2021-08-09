@@ -12,8 +12,12 @@ exports.task = () => {
     series(
       getModule('build/css'),
       getModule('build/sass'),
+      getModule('css/bundle'),
     ),
-    getModule('build/js'),
+    series(
+      getModule('build/js'),
+      getModule('js/bundle'),
+    ),
     getModule('build/img'),
   );
 }

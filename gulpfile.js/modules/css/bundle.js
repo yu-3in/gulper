@@ -7,24 +7,24 @@ const currentPath = process.cwd();
 // const { getModule } = require(`${currentPath}/gulpfile.js/lib/getModule`);
 const conf = require(`${process.cwd()}/config/gulp.json`);
 
-const bundleJS = (done) => {
+const bundleCSS = (done) => {
   // series
-  src(conf.js.bundle.src)
+  src(conf.css.bundle.src)
     .pipe(plumber({
       errorHandler: notify.onError('<%= error.message %>'),
     }))
-    .pipe(concat(conf.js.bundle.name))
-    .pipe(dest(conf.js.bundle.dest));
+    .pipe(concat(conf.css.bundle.name))
+    .pipe(dest(conf.css.bundle.dest));
   // setTimeout(() => {
   //   del([
-  //     conf.js.bundle.dest,
+  //     conf.css.bundle.dest,
   //   ]);
   //   setTimeout(() => {
-  //     src(conf.js.bundle.dest + conf.js.bundle.name)
-  //       .pipe(dest(conf.js.bundle.dest));
+  //     src(conf.css.bundle.dest + conf.css.bundle.name)
+  //       .pipe(dest(conf.css.bundle.dest));
   //     setTimeout(() => {
   //       del([
-  //         conf.js.bundle.dest + conf.js.bundle.name,
+  //         conf.css.bundle.dest + conf.css.bundle.name,
   //       ])
   //     }, 100);
   //   }, 100);
@@ -33,4 +33,4 @@ const bundleJS = (done) => {
   done();
 }
 
-exports.mod = bundleJS;
+exports.mod = bundleCSS;

@@ -126,6 +126,13 @@
     "outputStyle": {
       "expand": false,
       "compress": true
+    },
+    "bundle": {
+      "name": "bundle.css",
+      "src": [
+        "./dist/assets/css/**/*.css"
+      ],
+      "dest": "./dist/assets/css"
     }
   },
   "js": {
